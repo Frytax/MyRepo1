@@ -1,0 +1,68 @@
+.heading{
+    width: 50%;
+    margin: 30px auto;
+    text-align: center;
+    color: darkred;
+    background: #fff8dc;
+    border: 2px solid  darkred;
+    border-radius: 20px;
+}
+
+form{
+    width: 50%;
+    margin: 30px auto;
+    border-radius: 20px;
+    padding: 10px;
+    background: #fff8dc;
+    border: 2px solid  darkred;
+}
+.task_input{
+    width: 73%;
+    height: 15px;
+    padding: 10px;
+    border: 2px solid  darkred;
+}
+.task_btn{
+    height: 39px;
+    background: #fff8dc;
+    border: 2px solid  darkred;
+}
+table{
+    width: 50%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+tr{
+    border-bottom: 1px solid black;
+}
+th{
+
+    font-size: 19px;
+    color: darkred;
+}
+th, td{
+    border: none;
+    height: 30px;
+    padding: 2px;
+}
+tbody > tr:hover{
+    background: #d4d4d4;
+}
+.task{
+    text-align: center;
+}
+.delete{
+    text-align: center;
+}
+.delete a{
+    color: white;
+    background: darkred;
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+p{
+    color: red;
+    text-align: center;
+    font-size: 20px;
+}
