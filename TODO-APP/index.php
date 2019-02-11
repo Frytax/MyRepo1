@@ -1,31 +1,5 @@
-<?php
-    //connect database
+<?php require_once('add_task.php') ?>
 
-    $con = mysqli_connect('localhost', 'root', '', 'todolist');
-
-    if (isset($_POST["submit"])) {
-        
-        $task = $_POST["task"];
-        if (empty($task)) {
-            $error = "Musisz dodać jakiegoś taska";
-        }else{    
-            mysqli_query($con, "INSERT INTO tasks (task) VALUES ('$task')");
-            header('location: index.php');
-        }
-    }
-
-    $tasks = mysqli_query($con, "SELECT * FROM tasks");
-
-    //delete task
-    if (isset($_GET['del_task'])) {
-        $id = $_GET['del_task'];
-        mysqli_query($con, "DELETE FROM tasks WHERE ID=$id");
-        header('location: index.php');
-    }
-    
-
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +17,6 @@
     <?php  } ?>
 
     <form method="POST" action="index.php">
-
         <input type="text" name="task" class="task_input" placeholder="Task...">
         <button type="submit" name="submit" class="task_btn" >Add Task</button>
     </form>
@@ -57,19 +30,17 @@
             </tr>
         </thead>
 
-
         <tbody>
-            <?php while ($row = mysqli_fetch_array($tasks)) { ?>
+            <?php $i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
                     <tr>
-                        <td><?php echo $row ['ID']; ?></td>
+                        <td><?php echo $i; ?></td>
                         <td class="task"><?php echo $row ['task']; ?></td>
                         <td class="delete">
                             <a href="index.php?del_task=<?php echo $row ['ID']; ?>">X</a>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php $i++; } ?>
         </tbody>
-
     </table>
 </body>
 </html>
