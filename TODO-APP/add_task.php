@@ -1,6 +1,7 @@
 <?php
-    //connect database
-    $con = mysqli_connect('localhost', 'root', '', 'todolist');
+    require_once "connect.php";
+
+    $con = new mysqli($host, $dbuser, $dbpassword, $dbname);
 
     if (isset($_POST["submit"])) {
         
@@ -10,7 +11,7 @@
         }else{ 
             mysqli_query($con,sprintf("INSERT INTO tasks (task) VALUES ('%s')",
             mysqli_real_escape_string($con,$task)));
-            header('location: index.php');
+            header('location: todo.php');
         }
     }
 
@@ -20,6 +21,6 @@
     if (isset($_GET['del_task'])) {
         $id = $_GET['del_task'];
         mysqli_query($con, "DELETE FROM tasks WHERE ID=$id");
-        header('location: index.php');
+        header('location: todo.php');
     }  
 ?>

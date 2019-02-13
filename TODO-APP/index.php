@@ -1,46 +1,24 @@
-<?php require_once('add_task.php') ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TODO list</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login - ToDoAPP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="heading">
-        <h2>TODO list application</h2>
+    <div class="container">
+        <span><h2>Welcom ToDo aplication!</h2></span>
+        <form action="todo.php" method="POST">
+            <input type="text" name="user" placeholder="Login" onfocus="this.placeholder=''" onblur="this.placeholder='Login'"/>
+            <input type="password" name="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"/>
+            <input type="submit" name ="login" value="Login"/>
+            <span>You dont have an account yet? <a href="form_registration.php">put them on!</a></span>
+        </form>
+       
     </div>
+       
 
-    <?php 
-        if (isset($error)) { ?>
-        <p><?php echo $error ?></p>    
-    <?php  } ?>
-
-    <form method="POST" action="index.php">
-        <input type="text" name="task" class="task_input" placeholder="Task...">
-        <button type="submit" name="submit" class="task_btn" >Add Task</button>
-    </form>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Nr</th>
-                <th>Task</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <?php $i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
-                    <tr>
-                        <td><?php echo $i; ?></td>
-                        <td class="task"><?php echo $row ['task']; ?></td>
-                        <td class="delete">
-                            <a href="index.php?del_task=<?php echo $row ['ID']; ?>">X</a>
-                        </td>
-                    </tr>
-                <?php $i++; } ?>
-        </tbody>
-    </table>
 </body>
 </html>
