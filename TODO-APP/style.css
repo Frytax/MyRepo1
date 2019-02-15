@@ -58,3 +58,6 @@ input[type=submit]:focus{
 span{
     display: block;
 }
+.error{
+    color: red;
+}

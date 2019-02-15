@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <span><h2>Welcom ToDo aplication!</h2></span>
-        <form action="todo.php" method="POST">
+        <form action="login.php" method="POST">
             <input type="text" name="user" placeholder="Login" onfocus="this.placeholder=''" onblur="this.placeholder='Login'"/>
             <input type="password" name="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"/>
             <input type="submit" name ="login" value="Login"/>
